@@ -79,7 +79,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#demographics" id="toc-demographics" class="nav-link active" data-scroll-target="#demographics"><span class="header-section-number">1</span> Demographics</a></li>
+  <li><a href="#present-study" id="toc-present-study" class="nav-link active" data-scroll-target="#present-study"><span class="header-section-number">0.1</span> Present Study</a></li>
+  <li><a href="#demographics" id="toc-demographics" class="nav-link" data-scroll-target="#demographics"><span class="header-section-number">1</span> Demographics</a></li>
   <li><a href="#proposed-analysis" id="toc-proposed-analysis" class="nav-link" data-scroll-target="#proposed-analysis"><span class="header-section-number">2</span> Proposed Analysis</a>
   <ul>
   <li><a href="#preliminary-analyses" id="toc-preliminary-analyses" class="nav-link" data-scroll-target="#preliminary-analyses"><span class="header-section-number">2.1</span> Preliminary Analyses</a></li>
@@ -120,8 +121,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Revised analyses</li>
 <li>Change from correlation to multiple regression model</li>
 <li>Revised variables used for analysis</li>
+<li>Demographic variables included in analyses</li>
 </ol>
-<p><strong>Present Study:</strong></p>
+<section id="present-study" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="present-study"><span class="header-section-number">0.1</span> Present Study</h2>
 <p>Given the unique position seminary students are in, we recognize the need to identify narcissism and its predictors.</p>
 <p>The present study will examine rates of narcissism (grandiosity and vulnerability) in seminary students, and identify predictors which may help community stakeholders and clinicians make informed decisions on care and leadership appointment.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -194,50 +197,44 @@ Note
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    sexori6_1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Straight/Heterosexual"</span>,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>sexori6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
- Lesbian/Gay/Bisexual Straight/Heterosexual 
-                   33                   404 </code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data &lt;- data %&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(sexori6 = case_when(</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     sexori6_2 == 1 | sexori6_3 == 1 | sexori6_other == 1 ~ "Lesbian/Gay/Bisexual",</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     sexori6_1 == 1 ~ "Straight/Heterosexual",</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     TRUE ~ NA_character_</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   ))</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># table(data$sexori6)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rac6_col =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    race6_1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> race6_2 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> race6_3 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> race6_4 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> race6_other <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    race6_5 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_real_</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>rac6_col <span class="ot">&lt;-</span> sjlabelled<span class="sc">::</span><span class="fu">set_labels</span>(data<span class="sc">$</span>rac6_col, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"White"</span>, <span class="st">"Non-White"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
 <section id="demographics" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Demographics</h1>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>table1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>table1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
-<div id="qgjqcnwjeh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qgjqcnwjeh table {
+<div id="qgjyngxuye" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qgjyngxuye table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qgjqcnwjeh thead, #qgjqcnwjeh tbody, #qgjqcnwjeh tfoot, #qgjqcnwjeh tr, #qgjqcnwjeh td, #qgjqcnwjeh th {
+#qgjyngxuye thead, #qgjyngxuye tbody, #qgjyngxuye tfoot, #qgjyngxuye tr, #qgjyngxuye td, #qgjyngxuye th {
   border-style: none;
 }
 
-#qgjqcnwjeh p {
+#qgjyngxuye p {
   margin: 0;
   padding: 0;
 }
 
-#qgjqcnwjeh .gt_table {
+#qgjyngxuye .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -263,12 +260,12 @@ Note
   border-left-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_caption {
+#qgjyngxuye .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qgjqcnwjeh .gt_title {
+#qgjyngxuye .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -280,7 +277,7 @@ Note
   border-bottom-width: 0;
 }
 
-#qgjqcnwjeh .gt_subtitle {
+#qgjyngxuye .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -292,7 +289,7 @@ Note
   border-top-width: 0;
 }
 
-#qgjqcnwjeh .gt_heading {
+#qgjyngxuye .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -304,13 +301,13 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_bottom_border {
+#qgjyngxuye .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_col_headings {
+#qgjyngxuye .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -325,7 +322,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_col_heading {
+#qgjyngxuye .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -345,7 +342,7 @@ Note
   overflow-x: hidden;
 }
 
-#qgjqcnwjeh .gt_column_spanner_outer {
+#qgjyngxuye .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -357,15 +354,15 @@ Note
   padding-right: 4px;
 }
 
-#qgjqcnwjeh .gt_column_spanner_outer:first-child {
+#qgjyngxuye .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qgjqcnwjeh .gt_column_spanner_outer:last-child {
+#qgjyngxuye .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qgjqcnwjeh .gt_column_spanner {
+#qgjyngxuye .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -377,11 +374,11 @@ Note
   width: 100%;
 }
 
-#qgjqcnwjeh .gt_spanner_row {
+#qgjyngxuye .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qgjqcnwjeh .gt_group_heading {
+#qgjyngxuye .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -407,7 +404,7 @@ Note
   text-align: left;
 }
 
-#qgjqcnwjeh .gt_empty_group_heading {
+#qgjyngxuye .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -422,15 +419,15 @@ Note
   vertical-align: middle;
 }
 
-#qgjqcnwjeh .gt_from_md > :first-child {
+#qgjyngxuye .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qgjqcnwjeh .gt_from_md > :last-child {
+#qgjyngxuye .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qgjqcnwjeh .gt_row {
+#qgjyngxuye .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -449,7 +446,7 @@ Note
   overflow-x: hidden;
 }
 
-#qgjqcnwjeh .gt_stub {
+#qgjyngxuye .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -462,7 +459,7 @@ Note
   padding-right: 5px;
 }
 
-#qgjqcnwjeh .gt_stub_row_group {
+#qgjyngxuye .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -476,15 +473,15 @@ Note
   vertical-align: top;
 }
 
-#qgjqcnwjeh .gt_row_group_first td {
+#qgjyngxuye .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qgjqcnwjeh .gt_row_group_first th {
+#qgjyngxuye .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qgjqcnwjeh .gt_summary_row {
+#qgjyngxuye .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -494,16 +491,16 @@ Note
   padding-right: 5px;
 }
 
-#qgjqcnwjeh .gt_first_summary_row {
+#qgjyngxuye .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_first_summary_row.thick {
+#qgjyngxuye .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qgjqcnwjeh .gt_last_summary_row {
+#qgjyngxuye .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -513,7 +510,7 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_grand_summary_row {
+#qgjyngxuye .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -523,7 +520,7 @@ Note
   padding-right: 5px;
 }
 
-#qgjqcnwjeh .gt_first_grand_summary_row {
+#qgjyngxuye .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -533,7 +530,7 @@ Note
   border-top-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_last_grand_summary_row_top {
+#qgjyngxuye .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -543,11 +540,11 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_striped {
+#qgjyngxuye .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qgjqcnwjeh .gt_table_body {
+#qgjyngxuye .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -556,7 +553,7 @@ Note
   border-bottom-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_footnotes {
+#qgjyngxuye .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -570,7 +567,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_footnote {
+#qgjyngxuye .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -579,7 +576,7 @@ Note
   padding-right: 5px;
 }
 
-#qgjqcnwjeh .gt_sourcenotes {
+#qgjyngxuye .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -593,7 +590,7 @@ Note
   border-right-color: #D3D3D3;
 }
 
-#qgjqcnwjeh .gt_sourcenote {
+#qgjyngxuye .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -601,63 +598,63 @@ Note
   padding-right: 5px;
 }
 
-#qgjqcnwjeh .gt_left {
+#qgjyngxuye .gt_left {
   text-align: left;
 }
 
-#qgjqcnwjeh .gt_center {
+#qgjyngxuye .gt_center {
   text-align: center;
 }
 
-#qgjqcnwjeh .gt_right {
+#qgjyngxuye .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qgjqcnwjeh .gt_font_normal {
+#qgjyngxuye .gt_font_normal {
   font-weight: normal;
 }
 
-#qgjqcnwjeh .gt_font_bold {
+#qgjyngxuye .gt_font_bold {
   font-weight: bold;
 }
 
-#qgjqcnwjeh .gt_font_italic {
+#qgjyngxuye .gt_font_italic {
   font-style: italic;
 }
 
-#qgjqcnwjeh .gt_super {
+#qgjyngxuye .gt_super {
   font-size: 65%;
 }
 
-#qgjqcnwjeh .gt_footnote_marks {
+#qgjyngxuye .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qgjqcnwjeh .gt_asterisk {
+#qgjyngxuye .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qgjqcnwjeh .gt_indent_1 {
+#qgjyngxuye .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qgjqcnwjeh .gt_indent_2 {
+#qgjyngxuye .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qgjqcnwjeh .gt_indent_3 {
+#qgjyngxuye .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qgjqcnwjeh .gt_indent_4 {
+#qgjyngxuye .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qgjqcnwjeh .gt_indent_5 {
+#qgjyngxuye .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -811,11 +808,11 @@ Note
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_flex_table</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">save_as_docx</span>(table1, <span class="at">path =</span> <span class="st">"fuller-p1_dem_table.docx"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(data<span class="sc">$</span>age6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_flex_table</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">save_as_docx</span>(table1, <span class="at">path =</span> <span class="st">"fuller-p1_dem_table.docx"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(data<span class="sc">$</span>age6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   vars   n  mean    sd median trimmed  mad min max range skew kurtosis   se
@@ -831,31 +828,34 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>selected_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PNIG6r"</span>, <span class="st">"PNIV6r"</span>, <span class="st">"HUM5r"</span>, <span class="st">"SCON5r"</span>, <span class="st">"FORGO5r"</span>, <span class="st">"DEP5r"</span>, <span class="st">"ANX5r"</span>, <span class="st">"SHM5r"</span>, <span class="st">"PRAY5r"</span>, <span class="st">"SSG5r"</span>, <span class="st">"SPDS5r"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>bys_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data, <span class="at">select =</span> selected_vars)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>bys_table <span class="ot">&lt;-</span> <span class="fu">apa.cor.table</span>(bys_data, </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">table.number=</span><span class="dv">1</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">apa.save</span>(<span class="at">filename =</span> <span class="st">"cor_table.doc"</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>         bys_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>selected_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PNIG6r"</span>, <span class="st">"PNIV6r"</span>, <span class="st">"age6"</span>, <span class="st">"gender6"</span>, <span class="st">"rac6_col"</span>, <span class="st">"HUM5r"</span>, <span class="st">"SCON5r"</span>, <span class="st">"FORGO5r"</span>, <span class="st">"DEP5r"</span>, <span class="st">"ANX5r"</span>, <span class="st">"SHM5r"</span>, <span class="st">"PRAY5r"</span>, <span class="st">"SSG5r"</span>, <span class="st">"SPDS5r"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>bys_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data, <span class="at">select =</span> selected_vars)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>bys_table <span class="ot">&lt;-</span> <span class="fu">apa.cor.table</span>(bys_data, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">table.number=</span><span class="dv">1</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">apa.save</span>(<span class="at">filename =</span> <span class="st">"cor_table.doc"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>         bys_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <table class="table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -873,6 +873,9 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <th>8</th>
 <th>9</th>
 <th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
 </tr>
 </thead>
 <tbody>
@@ -881,6 +884,9 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <td>445</td>
 <td>25.44</td>
 <td>8.85</td>
+<td></td>
+<td></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -907,14 +913,20 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <td></td>
 <td></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>3. HUM5r</td>
+<td>3. age6</td>
 <td>445</td>
-<td>37.85</td>
-<td>3.88</td>
-<td>-.11*</td>
-<td>-.23**</td>
+<td>33.94</td>
+<td>10.94</td>
+<td>-.38**</td>
+<td>-.30**</td>
+<td></td>
+<td></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -925,12 +937,72 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <td></td>
 </tr>
 <tr class="even">
-<td>4. SCON5r</td>
+<td>4. gender6</td>
+<td>445</td>
+<td>0.50</td>
+<td>0.50</td>
+<td>-.11*</td>
+<td>.10*</td>
+<td>.20**</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>5. rac6_col</td>
+<td>438</td>
+<td>0.37</td>
+<td>0.48</td>
+<td>.05</td>
+<td>.01</td>
+<td>-.02</td>
+<td>-.01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>6. HUM5r</td>
+<td>445</td>
+<td>37.85</td>
+<td>3.88</td>
+<td>-.11*</td>
+<td>-.23**</td>
+<td>.10*</td>
+<td>.15**</td>
+<td>.04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>7. SCON5r</td>
 <td>445</td>
 <td>9.11</td>
 <td>2.47</td>
 <td>.25**</td>
 <td>.20**</td>
+<td>-.13**</td>
+<td>-.21**</td>
+<td>.05</td>
 <td>-.16**</td>
 <td></td>
 <td></td>
@@ -940,13 +1012,16 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>5. FORGO5r</td>
+<tr class="even">
+<td>8. FORGO5r</td>
 <td>445</td>
 <td>9.69</td>
 <td>3.72</td>
 <td>.28**</td>
 <td>.47**</td>
+<td>-.09</td>
+<td>.13**</td>
+<td>.13**</td>
 <td>-.18**</td>
 <td>.22**</td>
 <td></td>
@@ -956,13 +1031,16 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
-<td>6. DEP5r</td>
+<tr class="odd">
+<td>9. DEP5r</td>
 <td>445</td>
 <td>14.22</td>
 <td>4.96</td>
 <td>.28**</td>
 <td>.40**</td>
+<td>-.16**</td>
+<td>.13**</td>
+<td>.13**</td>
 <td>-.08</td>
 <td>.29**</td>
 <td>.38**</td>
@@ -972,13 +1050,16 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>7. ANX5r</td>
+<tr class="even">
+<td>10. ANX5r</td>
 <td>445</td>
 <td>11.36</td>
 <td>4.48</td>
 <td>.27**</td>
 <td>.44**</td>
+<td>-.23**</td>
+<td>.12*</td>
+<td>.05</td>
 <td>-.12*</td>
 <td>.19**</td>
 <td>.39**</td>
@@ -988,13 +1069,16 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
-<td>8. SHM5r</td>
+<tr class="odd">
+<td>11. SHM5r</td>
 <td>445</td>
 <td>9.72</td>
 <td>3.67</td>
 <td>.28**</td>
 <td>.52**</td>
+<td>-.21**</td>
+<td>.03</td>
+<td>.06</td>
 <td>-.18**</td>
 <td>.34**</td>
 <td>.44**</td>
@@ -1004,13 +1088,16 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>9. PRAY5r</td>
+<tr class="even">
+<td>12. PRAY5r</td>
 <td>445</td>
 <td>27.99</td>
 <td>6.03</td>
 <td>-.10*</td>
 <td>-.15**</td>
+<td>.18**</td>
+<td>-.02</td>
+<td>-.03</td>
 <td>.18**</td>
 <td>-.22**</td>
 <td>-.13**</td>
@@ -1020,13 +1107,16 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
-<td>10. SSG5r</td>
+<tr class="odd">
+<td>13. SSG5r</td>
 <td>445</td>
 <td>5.69</td>
 <td>2.74</td>
 <td>.23**</td>
 <td>.33**</td>
+<td>-.23**</td>
+<td>.08</td>
+<td>.04</td>
 <td>-.10*</td>
 <td>.12*</td>
 <td>.29**</td>
@@ -1036,13 +1126,16 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 <td>-.13**</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>11. SPDS5r</td>
+<tr class="even">
+<td>14. SPDS5r</td>
 <td>445</td>
 <td>18.15</td>
 <td>5.01</td>
 <td>-.13**</td>
 <td>-.19**</td>
+<td>.21**</td>
+<td>-.13**</td>
+<td>.04</td>
 <td>.16**</td>
 <td>-.28**</td>
 <td>-.19**</td>
@@ -1054,6 +1147,7 @@ X1    1 445 33.94 10.94     29   32.24 7.41  22  68    46  1.2     0.59 0.52</co
 </tr>
 </tbody>
 </table>
+<p>*Note: gender6 (0 is male and 1 is female); rac6_col (0 is White and 1 is Non-White)</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1077,83 +1171,37 @@ Note
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">"PNIG6r ~ HUM5r + SCON5r + FORGO5r + PRAY5r + SSG5r + SPDS5r"</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(model, <span class="at">data =</span> data, <span class="at">missing =</span> <span class="st">"fiml"</span>, <span class="at">fixed.x =</span> F)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(PNIG6r <span class="sc">~</span> gender6 <span class="sc">+</span> rac6_col <span class="sc">+</span> age6 <span class="sc">+</span> HUM5r <span class="sc">+</span> SCON5r <span class="sc">+</span> FORGO5r <span class="sc">+</span> PRAY5r <span class="sc">+</span> SSG5r <span class="sc">+</span> SPDS5r, <span class="at">data =</span> data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.16 ended normally after 140 iterations
+<pre><code>
+Call:
+lm(formula = PNIG6r ~ gender6 + rac6_col + age6 + HUM5r + SCON5r + 
+    FORGO5r + PRAY5r + SSG5r + SPDS5r, data = data)
 
-  Estimator                                         ML
-  Optimization method                           NLMINB
-  Number of model parameters                        35
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-21.0536  -6.0460   0.2948   5.6634  18.7371 
 
-  Number of observations                           445
-  Number of missing patterns                         1
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 22.88870    4.90205   4.669 4.05e-06 ***
+gender6     -0.83671    0.82125  -1.019  0.30886    
+rac6_col     0.05834    0.78387   0.074  0.94070    
+age6        -0.25249    0.03672  -6.876 2.20e-11 ***
+HUM5r       -0.01639    0.10229  -0.160  0.87277    
+SCON5r       0.52139    0.16723   3.118  0.00195 ** 
+FORGO5r      0.47276    0.11054   4.277 2.34e-05 ***
+PRAY5r       0.04023    0.08107   0.496  0.62000    
+SSG5r        0.25587    0.14765   1.733  0.08383 .  
+SPDS5r       0.01816    0.10290   0.176  0.86003    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Model Test User Model:
-                                                      
-  Test statistic                                 0.000
-  Degrees of freedom                                 0
-
-Parameter Estimates:
-
-  Standard errors                             Standard
-  Information                                 Observed
-  Observed information based on                Hessian
-
-Regressions:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-  PNIG6r ~                                            
-    HUM5r            -0.066    0.104   -0.631    0.528
-    SCON5r            0.674    0.168    4.001    0.000
-    FORGO5r           0.446    0.113    3.944    0.000
-    PRAY5r            0.006    0.085    0.074    0.941
-    SSG5r             0.474    0.150    3.150    0.002
-    SPDS5r           -0.023    0.104   -0.217    0.828
-
-Covariances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-  HUM5r ~~                                            
-    SCON5r           -1.540    0.459   -3.357    0.001
-    FORGO5r          -2.620    0.694   -3.774    0.000
-    PRAY5r            4.271    1.125    3.795    0.000
-    SSG5r            -1.058    0.506   -2.090    0.037
-    SPDS5r            3.054    0.931    3.281    0.001
-  SCON5r ~~                                           
-    FORGO5r           2.008    0.444    4.520    0.000
-    PRAY5r           -3.336    0.721   -4.630    0.000
-    SSG5r             0.812    0.322    2.519    0.012
-    SPDS5r           -3.491    0.607   -5.751    0.000
-  FORGO5r ~~                                          
-    PRAY5r           -2.914    1.069   -2.726    0.006
-    SSG5r             2.916    0.502    5.807    0.000
-    SPDS5r           -3.621    0.898   -4.034    0.000
-  PRAY5r ~~                                           
-    SSG5r            -2.159    0.789   -2.738    0.006
-    SPDS5r           19.241    1.694   11.360    0.000
-  SSG5r ~~                                            
-    SPDS5r           -2.832    0.664   -4.268    0.000
-
-Intercepts:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-   .PNIG6r           15.014    4.989    3.009    0.003
-    HUM5r            37.847    0.184  205.825    0.000
-    SCON5r            9.112    0.117   78.033    0.000
-    FORGO5r           9.690    0.176   55.015    0.000
-    PRAY5r           27.993    0.285   98.099    0.000
-    SSG5r             5.692    0.130   43.811    0.000
-    SPDS5r           18.151    0.237   76.550    0.000
-
-Variances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-   .PNIG6r           67.446    4.522   14.916    0.000
-    HUM5r            15.046    1.009   14.916    0.000
-    SCON5r            6.068    0.407   14.916    0.000
-    FORGO5r          13.805    0.925   14.916    0.000
-    PRAY5r           36.236    2.429   14.916    0.000
-    SSG5r             7.512    0.504   14.916    0.000
-    SPDS5r           25.018    1.677   14.916    0.000</code></pre>
+Residual standard error: 7.803 on 428 degrees of freedom
+  (7 observations deleted due to missingness)
+Multiple R-squared:  0.2257,    Adjusted R-squared:  0.2094 
+F-statistic: 13.86 on 9 and 428 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -1166,7 +1214,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Results indicate <code>Self-control</code>, <code>Forgiveness of Others</code>, and <code>Spiritual Struggles</code> are significant predictors of <code>Grandiosity</code>.</p>
+<p>Results indicate <code>Age</code>, <code>Humility</code>, and <code>Forgiveness of Others</code> are significant predictors of `Grandiosity``.</p>
 </div>
 </div>
 </section>
@@ -1175,83 +1223,37 @@ Important
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">"PNIV6r ~ HUM5r + SCON5r + FORGO5r + PRAY5r + SSG5r + SPDS5r"</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(model, <span class="at">data =</span> data, <span class="at">missing =</span> <span class="st">"fiml"</span>, <span class="at">fixed.x =</span> F)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(PNIV6r <span class="sc">~</span> gender6 <span class="sc">+</span> rac6_col <span class="sc">+</span> age6 <span class="sc">+</span> HUM5r <span class="sc">+</span> SCON5r <span class="sc">+</span> FORGO5r <span class="sc">+</span> PRAY5r <span class="sc">+</span> SSG5r <span class="sc">+</span> SPDS5r, <span class="at">data =</span> data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.16 ended normally after 148 iterations
+<pre><code>
+Call:
+lm(formula = PNIV6r ~ gender6 + rac6_col + age6 + HUM5r + SCON5r + 
+    FORGO5r + PRAY5r + SSG5r + SPDS5r, data = data)
 
-  Estimator                                         ML
-  Optimization method                           NLMINB
-  Number of model parameters                        35
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-17.9516  -4.1637  -0.6594   3.3511  23.9206 
 
-  Number of observations                           445
-  Number of missing patterns                         1
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 19.08070    4.15920   4.588 5.90e-06 ***
+gender6      2.19216    0.69680   3.146 0.001771 ** 
+rac6_col    -0.76880    0.66509  -1.156 0.248349    
+age6        -0.17752    0.03116  -5.697 2.27e-08 ***
+HUM5r       -0.25725    0.08679  -2.964 0.003206 ** 
+SCON5r       0.26978    0.14189   1.901 0.057931 .  
+FORGO5r      0.79443    0.09379   8.471 3.96e-16 ***
+PRAY5r      -0.03467    0.06878  -0.504 0.614509    
+SSG5r        0.47436    0.12528   3.786 0.000175 ***
+SPDS5r       0.06994    0.08730   0.801 0.423478    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Model Test User Model:
-                                                      
-  Test statistic                                 0.000
-  Degrees of freedom                                 0
-
-Parameter Estimates:
-
-  Standard errors                             Standard
-  Information                                 Observed
-  Observed information based on                Hessian
-
-Regressions:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-  PNIV6r ~                                            
-    HUM5r            -0.270    0.087   -3.119    0.002
-    SCON5r            0.202    0.140    1.440    0.150
-    FORGO5r           0.804    0.094    8.552    0.000
-    PRAY5r           -0.044    0.070   -0.620    0.535
-    SSG5r             0.588    0.125    4.701    0.000
-    SPDS5r           -0.027    0.087   -0.310    0.757
-
-Covariances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-  HUM5r ~~                                            
-    SCON5r           -1.540    0.459   -3.357    0.001
-    FORGO5r          -2.620    0.694   -3.774    0.000
-    PRAY5r            4.271    1.125    3.795    0.000
-    SSG5r            -1.058    0.506   -2.090    0.037
-    SPDS5r            3.054    0.931    3.281    0.001
-  SCON5r ~~                                           
-    FORGO5r           2.008    0.444    4.520    0.000
-    PRAY5r           -3.336    0.721   -4.630    0.000
-    SSG5r             0.812    0.322    2.519    0.012
-    SPDS5r           -3.491    0.607   -5.751    0.000
-  FORGO5r ~~                                          
-    PRAY5r           -2.914    1.069   -2.726    0.006
-    SSG5r             2.916    0.502    5.807    0.000
-    SPDS5r           -3.621    0.898   -4.034    0.000
-  PRAY5r ~~                                           
-    SSG5r            -2.159    0.789   -2.738    0.006
-    SPDS5r           19.241    1.694   11.360    0.000
-  SSG5r ~~                                            
-    SPDS5r           -2.832    0.664   -4.268    0.000
-
-Intercepts:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-   .PNIV6r           16.198    4.153    3.900    0.000
-    HUM5r            37.847    0.184  205.825    0.000
-    SCON5r            9.112    0.117   78.033    0.000
-    FORGO5r           9.690    0.176   55.015    0.000
-    PRAY5r           27.993    0.285   98.099    0.000
-    SSG5r             5.692    0.130   43.811    0.000
-    SPDS5r           18.151    0.237   76.550    0.000
-
-Variances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-   .PNIV6r           46.736    3.133   14.916    0.000
-    HUM5r            15.046    1.009   14.916    0.000
-    SCON5r            6.068    0.407   14.916    0.000
-    FORGO5r          13.805    0.925   14.916    0.000
-    PRAY5r           36.236    2.429   14.916    0.000
-    SSG5r             7.512    0.504   14.916    0.000
-    SPDS5r           25.018    1.677   14.916    0.000</code></pre>
+Residual standard error: 6.621 on 428 degrees of freedom
+  (7 observations deleted due to missingness)
+Multiple R-squared:  0.3495,    Adjusted R-squared:  0.3359 
+F-statistic: 25.55 on 9 and 428 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -1264,13 +1266,13 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Results indicate <code>Humility</code>, <code>Forgiveness of Others</code>, and <code>Spiritual Struggles</code> are significant predictors of <code>Vulnerability</code>.</p>
+<p>Results indicate <code>Gender</code>, <code>Age</code>, <code>Humility</code>, <code>Forgiveness of Others</code>, and <code>Spiritual Struggle</code> are significant predictors of <code>Vulnerability</code>.</p>
 </div>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quarto publish gh-pages Fuller_Paper-1.qmd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quarto publish gh-pages Fuller_Paper-1.qmd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
